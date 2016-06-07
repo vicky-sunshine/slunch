@@ -47,7 +47,7 @@ The default timer is set to 12:30 from Monday to Friday. Tune it to your likings
 
 Don't like the default message? Make your own!
 
-`lib/taks/slackbot.rake`
+`lib/tasks/slackbot.rake`
 
 ## ...and start it up!
 
