@@ -1,0 +1,15 @@
+defaults: &defaults
+  slack:
+    token: ''
+    channels: 
+      - ''
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
