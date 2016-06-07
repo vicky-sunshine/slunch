@@ -29,7 +29,7 @@ Don't know your channel id? We've got you covered:
 
 `$ rake slackbot:channels`
 
-Next, you need to build your lunch list. I haven't bothered to build the UI (yet), so in the mean time just edit:
+Next, you need to build your lunch list. I haven't bothered to build the UI (yet), so in the meantime just edit:
 
 `lib/tasks/lunch.yml`
 
