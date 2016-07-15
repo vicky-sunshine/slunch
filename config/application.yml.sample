@@ -2,7 +2,7 @@ defaults: &defaults
   slack:
     token: <%= ENV['SLACK_TOKEN'] %>
     channels:
-      - <%= ENV['CHANNEL_TOKEN'] %> # bot_test
+      - <%= ENV['CHANNEL_TOKEN'] %>
 
 development:
   <<: *defaults
