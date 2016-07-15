@@ -1,5 +1,6 @@
-p#notice= notice
 h1 Lunch List
+- flash.each do |name, msg|
+  = content_tag :div, msg, class: "alert alert-success"
 table.table.table-striped.table-hover
   thead
     tr
