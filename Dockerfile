@@ -17,3 +17,7 @@ RUN cp config/application.yml.sample config/application.yml && \
     rake db:migrate && \
     rake import_data:lunch && \
     whenever -i
+
+EXPOSE 3000
+
+CMD ["rails", "-b", "0.0.0.0"]
