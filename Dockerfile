@@ -13,6 +13,7 @@ WORKDIR /slunch
 RUN bundle install
 
 RUN cp config/application.yml.sample config/application.yml && \
+    cp config/secrets.yml.sample config/secrets.yml && \
     rake db:create && \
     rake db:migrate && \
     rake import_data:lunch && \
