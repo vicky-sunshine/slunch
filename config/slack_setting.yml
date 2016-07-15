@@ -1,0 +1,15 @@
+defaults: &defaults
+  slack:
+    token: 'xoxb-11954711521-iTGX42Mm287dV3uPib03Nl8r'
+    channels:
+      - 'G0BU8A4AV' #bot_test
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
