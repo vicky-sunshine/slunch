@@ -28,8 +28,8 @@ class LunchesController < ApplicationController
     respond_to do |format|
       if @lunch.save
         @lunches = Lunch.all
-        format.html { render :index, notice: 'Lunch was successfully updated.' }
-        format.json { render :index, status: :ok }
+        format.html { redirect_to lunches_url, notice: 'Lunch was successfully updated.' }
+        format.json { render @lunch, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @lunch.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class LunchesController < ApplicationController
     respond_to do |format|
       if @lunch.update(lunch_params)
         @lunches = Lunch.all
-        format.html { render :index, notice: 'Lunch was successfully updated.' }
-        format.json { render :index, status: :ok, location: @lunches }
+        format.html { redirect_to lunches_url, notice: 'Lunch was successfully updated.' }
+        format.json { render @lunch, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @lunch.errors, status: :unprocessable_entity }
@@ -58,8 +58,8 @@ class LunchesController < ApplicationController
     @lunch.destroy
     @lunches = Lunch.all
     respond_to do |format|
-      format.html { render :index, notice: 'Lunch was successfully destroyed.' }
-      format.json { render :index, status: :ok, location: @lunches }
+      format.html { redirect_to lunches_url, notice: 'Lunch was successfully destroyed.' }
+      format.json { render @lunch, status: :ok, location: @lunches }
     end
   end
 
@@ -71,6 +71,6 @@ class LunchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lunch_params
-      params.permit(:name, :location, :phone, :description)
+      params.require(:lunch).permit(:name, :location, :phone, :description)
     end
 end

@@ -17,13 +17,13 @@ class LunchesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lunch" do
     assert_difference('Lunch.count') do
-      post lunches_url, params: { name: @lunch.name,
-                                  location: @lunch.location,
-                                  phone: @lunch.phone,
-                                  description: @lunch.description}
+      post lunches_url, params: { lunch: { name: @lunch.name,
+                                           location: @lunch.location,
+                                           phone: @lunch.phone,
+                                           description: @lunch.description }}
     end
 
-    assert_response :success
+    assert_response :found
   end
 
   test "should show lunch" do
@@ -37,9 +37,9 @@ class LunchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lunch" do
-    patch lunch_url(@lunch), params: { name: @lunch.name, location: @lunch.location }
+    patch lunch_url(@lunch), params: { lunch: { name: @lunch.name, location: @lunch.location }}
 
-    assert_response :success
+    assert_response :found
   end
 
   test "should destroy lunch" do
@@ -47,6 +47,6 @@ class LunchesControllerTest < ActionDispatch::IntegrationTest
       delete lunch_url(@lunch)
     end
 
-    assert_response :success
+    assert_response :found
   end
 end
