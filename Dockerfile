@@ -20,4 +20,4 @@ RUN cp config/application.yml.sample config/application.yml && \
 
 EXPOSE 3000
 
-CMD ["rails", "-b", "0.0.0.0"]
+CMD ["rails server", "-b", "0.0.0.0"]
