@@ -80,21 +80,10 @@ Pull the Image first.
 $ docker pull lch82327/slunch
 ```
 
-Run container with
-```shell
+You can send message by
+``` shell
 $ docker run \
-> -e SLACK_TOKEN='...' \
-> -e CHANNEL_TOKEN='...' \
-> -e SECRET_KEY_BASE='...' \
-> -p 3000:3000 \
-> -d lch82327/slunch
-```
-
-If you use `docker machine`, you can access Web UI by
-```
-http://192.168.99.100:3000/lunches
-```
-If you use `docker beta`, you can access Web UI by
-```
-http://localhost:3000/lunches
+  -e SLACK_TOKEN='...' \
+  -e CHANNEL_TOKEN='...' \
+  -t lch82327/slunch /bin/bash -l -c 'cd /slunch && RAILS_ENV=development bundle exec rake slackbot:lunch --silent >> /dev/null 2>&1' --rm
 ```
