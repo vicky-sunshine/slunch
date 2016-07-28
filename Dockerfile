@@ -19,6 +19,8 @@ RUN cp config/application.yml.sample config/application.yml && \
     bundle exec rake import_data:lunch && \
     whenever -i
 
+VOLUME ./db/development.sqlite3
+
 EXPOSE 3000
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
