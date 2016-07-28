@@ -14,11 +14,11 @@ RUN bundle install
 
 RUN cp config/application.yml.sample config/application.yml && \
     cp config/secrets.yml.sample config/secrets.yml && \
-    rake db:create && \
-    rake db:migrate && \
-    rake import_data:lunch && \
+    bundle exec rake db:create && \
+    bundle exec rake db:migrate && \
+    bundle exec rake import_data:lunch && \
     whenever -i
 
 EXPOSE 3000
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
